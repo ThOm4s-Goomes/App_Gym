@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'modules/Sign In/my_sign_in_module.dart';
+import '../common/firebase/main page/main_page_module.dart';
 
 class AppModule extends Module {
   @override
@@ -8,6 +8,6 @@ class AppModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute(Modular.initialRoute, module: MyPageLoginModule()),
+    ModuleRoute(Modular.initialRoute, module: MainPageModule()),
   ];
 }

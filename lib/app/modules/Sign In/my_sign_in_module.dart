@@ -13,7 +13,7 @@ class MyPageLoginModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => const Login()),
+    ChildRoute('/', child: (_, args) => Login()),
     ChildRoute('/sign-up', child: (_, args) => const SignUp()),
     ChildRoute('/home-page', child: (_, args) => const HomePage()),
     ChildRoute('/home-page-navbar', child: (_, args) => const NavigatorBarPage()),

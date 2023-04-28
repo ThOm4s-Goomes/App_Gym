@@ -1,17 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-mixin LoginMixin {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+import '../my_sign_in_store.dart';
 
-  Future signIn() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
-  }
+mixin LoginMixin {
+  final SignInStore store = SignInStore();
 
   Widget logo() {
     return Column(
@@ -30,66 +23,66 @@ mixin LoginMixin {
     );
   }
 
-  Widget form() {
-    return Column(
-      children: [
-        const Text('Acesse sua conta', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20)),
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.black),
-            child: TextFormField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.all(20),
-                hintText: 'E-mail',
-                hintStyle: TextStyle(color: Colors.grey),
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.black),
-            child: TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.all(20),
-                hintText: 'Senha',
-                hintStyle: TextStyle(color: Colors.grey),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+  // Widget form() {
+  //   return Column(
+  //     children: [
+  //       const Text('Acesse sua conta', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20)),
+  //       const SizedBox(height: 20),
+  //       Padding(
+  //         padding: const EdgeInsets.only(left: 20, right: 20),
+  //         child: Container(
+  //           decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.black),
+  //           child: TextFormField(
+  //             controller: _emailController,
+  //             decoration: const InputDecoration(
+  //               border: InputBorder.none,
+  //               contentPadding: EdgeInsets.all(20),
+  //               hintText: 'E-mail',
+  //               hintStyle: TextStyle(color: Colors.grey),
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //       const SizedBox(height: 20),
+  //       Padding(
+  //         padding: const EdgeInsets.only(left: 20, right: 20),
+  //         child: Container(
+  //           decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.black),
+  //           child: TextFormField(
+  //             controller: _passwordController,
+  //             decoration: const InputDecoration(
+  //               border: InputBorder.none,
+  //               contentPadding: EdgeInsets.all(20),
+  //               hintText: 'Senha',
+  //               hintStyle: TextStyle(color: Colors.grey),
+  //             ),
+  //           ),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
-  Widget buttomPrimary() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
-      child: Container(
-        width: 400,
-        height: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: const Color(0xFF00875F),
-        ),
-        child: TextButton(
-          onPressed: signIn,
-          child: const Text(
-            'Acessar',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget buttomPrimary() {
+  //   return Padding(
+  //     padding: const EdgeInsets.only(left: 20, right: 20),
+  //     child: Container(
+  //       width: 400,
+  //       height: 60,
+  //       decoration: BoxDecoration(
+  //         borderRadius: BorderRadius.circular(5),
+  //         color: const Color(0xFF00875F),
+  //       ),
+  //       child: TextButton(
+  //         onPressed: signIn,
+  //         child: const Text(
+  //           'Acessar',
+  //           style: TextStyle(color: Colors.white),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget buttomOutline() {
     return Padding(
