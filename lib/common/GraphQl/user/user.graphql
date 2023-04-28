@@ -1,0 +1,26 @@
+mutation InsertUsers(
+  $name: String
+  $email: String
+  $password: String
+  $password_conf: String
+  $id: String
+) {
+  insert_users(
+    objects: {
+      name: $name
+      email: $email
+      password: $password
+      password_conf: $password_conf
+      id: $id
+    }
+  ) {
+    affected_rows
+    returning {
+      name
+      email
+      password
+      password_conf
+      id
+    }
+  }
+}

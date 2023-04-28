@@ -1,7 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 mixin LoginMixin {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future signIn() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+  }
+
   Widget logo() {
     return Column(
       children: [
@@ -29,7 +40,13 @@ mixin LoginMixin {
           child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.black),
             child: TextFormField(
-              decoration: const InputDecoration(border: InputBorder.none, contentPadding: EdgeInsets.all(20), hintText: 'E-mail', hintStyle: TextStyle(color: Colors.grey)),
+              controller: _emailController,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.all(20),
+                hintText: 'E-mail',
+                hintStyle: TextStyle(color: Colors.grey),
+              ),
             ),
           ),
         ),
@@ -39,7 +56,13 @@ mixin LoginMixin {
           child: Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: Colors.black),
             child: TextFormField(
-              decoration: const InputDecoration(border: InputBorder.none, contentPadding: EdgeInsets.all(20), hintText: 'Senha', hintStyle: TextStyle(color: Colors.grey)),
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.all(20),
+                hintText: 'Senha',
+                hintStyle: TextStyle(color: Colors.grey),
+              ),
             ),
           ),
         ),
@@ -57,7 +80,13 @@ mixin LoginMixin {
           borderRadius: BorderRadius.circular(5),
           color: const Color(0xFF00875F),
         ),
-        child: TextButton(onPressed: () => Modular.to.navigate('/home-page-navbar'), child: const Text('Acessar', style: TextStyle(color: Colors.white))),
+        child: TextButton(
+          onPressed: signIn,
+          child: const Text(
+            'Acessar',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
       ),
     );
   }

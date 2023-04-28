@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "564875431497",
+    "project_id": "gym-database-stage-f710b",
+    "storage_bucket": "gym-database-stage-f710b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564875431497:android:1ff1ec764393d58b937998",
+        "android_client_info": {
+          "package_name": "com.example.app_gym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564875431497-brhgdrcibi32fcrr7a7tjd6ml9aoub6r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvg6H9QC6dvht9V3BeD_KkiB6seq7a6S0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564875431497-brhgdrcibi32fcrr7a7tjd6ml9aoub6r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
